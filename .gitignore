@@ -1,0 +1,30 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+*.pyo
+.Python
+env/
+venv/
+ENV/
+venv.bak/
+
+# 환경 파일
+myenv/
+*.env
+
+# 데이터베이스 파일
+*.sqlite3
+
+# VS Code
+.vscode/
+
+# macOS
+.DS_Store
+
+# Docker
+*.log
+
+# 개인파일
+privateDoc/

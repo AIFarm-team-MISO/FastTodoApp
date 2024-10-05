@@ -1,0 +1,31 @@
+# 10/05 업데이트 됨
+
+FastTodoApp/
+│
+├── app/
+│   ├── __init__.py               # 앱 모듈 초기화 파일
+│   ├── main.py                   # FastAPI 앱의 엔트리 포인트
+│   ├── models.py                 # 데이터베이스 모델 정의
+│   ├── schemas.py                # Pydantic 스키마 정의 (요청/응답 데이터 검증)
+│   ├── crud.py                   # 데이터베이스 관련 CRUD 작업
+│   ├── dependencies.py           # 의존성 주입 관련 코드 (DB 연결 등)
+│   ├── routers/                  # API 라우팅 (엔드포인트들) 관련 파일
+│   │   ├── __init__.py           
+│   │   ├── users.py              # 사용자 관련 API
+│   │   ├── tasks.py              # 할 일 관련 API
+│   └── core/
+│       ├── __init__.py
+│       ├── config.py             # 환경 설정 (예: 데이터베이스 URL)
+│       ├── security.py           # 인증/인가 관련 코드
+│
+├── tests/                        # 테스트 코드 폴더
+│   ├── __init__.py
+│   ├── test_users.py             # 사용자 API 테스트
+│   ├── test_tasks.py             # 할 일 API 테스트
+│
+├── alembic/                      # 데이터베이스 마이그레이션 폴더 (Alembic 사용 시)
+│   └── versions/                 # 마이그레이션 파일들
+├── .env                          # 환경 변수 파일 (DB 정보, 시크릿 키 등)
+├── requirements.txt              # 필요한 패키지 목록
+└── README.md                     # 프로젝트 설명 문서
+
