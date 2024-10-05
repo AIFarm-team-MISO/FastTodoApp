@@ -31,3 +31,6 @@ FastTodoApp/doc/forder structure
 - **패키지 관리:** Pydantic, SQLAlchemy, Uvicorn, pytest
 - **배포:** Docker, GitHub Actions (CI/CD)
 - **기타:** JWT 인증 (추가 기능 예정)
+
+## 프로젝트 안내사항
+**현재 10월04일 기준으로 새로운 프로젝트를 진행하였으며 매일매일 업데이트될 예정입니다.**   
