@@ -18,8 +18,8 @@ FastTodoApp/
 │       ├── config.py             # 환경 설정 (예: 데이터베이스 URL)
 │       ├── security.py           # 인증/인가 관련 코드
 │
-├── tests/                        # 테스트 코드 폴더
-│   ├── __init__.py
+├── tests/                        # 테스트 코드 폴더 (필요시 사용될 폴더)
+│   ├── __init__.py                  
 │   ├── test_users.py             # 사용자 API 테스트
 │   ├── test_tasks.py             # 할 일 API 테스트
 │
