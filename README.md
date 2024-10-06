@@ -1,4 +1,6 @@
 # FastTodoApp
+**현재 10월04일 기준으로 새로운 프로젝트를 진행하였으며 매일매일 업데이트될 예정입니다.**   
+
 ## 프로젝트 개요
 FastTodoApp은 FastAPI를 기반으로 한 간단하고 확장 가능한 Todo 관리 애플리케이션입니다.  
 이 프로젝트는 FastAPI의 고성능 비동기 기능과 REST API 구조를 학습하고,  
@@ -79,11 +81,9 @@ FastTodoApp/doc/forder structure
 ## 기술 스택
 - **언어:** Python 3.9+
 - **프레임워크:** FastAPI
-- **데이터베이스:** SQLite (개발 환경), PostgreSQL (프로덕션 환경)
-- **서버:** AWS EC2 (Ubuntu), Nginx, Gunicorn
+- **데이터베이스:** 미정
+- **서버:** AWS EC2 (Ubuntu)
 - **패키지 관리:** Pydantic, SQLAlchemy, Uvicorn, pytest
-- **배포:** Docker, GitHub Actions (CI/CD)
+- **배포:** GitHub
 - **기타:** JWT 인증 (추가 기능 예정)
 
-## 프로젝트 안내사항
-**현재 10월04일 기준으로 새로운 프로젝트를 진행하였으며 매일매일 업데이트될 예정입니다.**   
