@@ -12,7 +12,7 @@ FastTodoApp/
 │   ├── routers/                  # API 라우팅 (엔드포인트들) 관련 파일
 │   │   ├── __init__.py           
 │   │   ├── users.py              # 사용자 관련 API
-│   │   ├── tasks.py              # 할 일 관련 API
+│   │   ├── todo.py              # 할 일 관련 API
 │   └── core/
 │       ├── __init__.py
 │       ├── config.py             # 환경 설정 (예: 데이터베이스 URL)
