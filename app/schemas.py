@@ -41,4 +41,4 @@ class TodoResponse(TodoBase):
 
     
     class Config:
-        orm_mode = True
+        from_attributes  = True   # Pydantic V2 에서 orm_mode 가 from_attributes 로 변경됨

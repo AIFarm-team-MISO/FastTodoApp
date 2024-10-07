@@ -2,6 +2,7 @@
 
 from fastapi import FastAPI
 from app.routers import todo
+from .core.config import SQLALCHEMY_DATABASE_URL
 
 app = FastAPI()
 

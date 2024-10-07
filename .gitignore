@@ -13,6 +13,7 @@ venv.bak/
 # 환경 파일
 myenv/
 *.env
+.env.*
 
 # 데이터베이스 파일
 *.sqlite3

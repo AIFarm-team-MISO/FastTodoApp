@@ -81,7 +81,7 @@ FastTodoApp/doc/forder structure
 ## 기술 스택
 - **언어:** Python 3.9+
 - **프레임워크:** FastAPI
-- **데이터베이스:** 미정
+- **데이터베이스:** MySQL
 - **서버:** AWS EC2 (Ubuntu)
 - **패키지 관리:** Pydantic, SQLAlchemy, Uvicorn, pytest
 - **배포:** GitHub
