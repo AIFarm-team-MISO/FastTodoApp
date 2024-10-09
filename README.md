@@ -40,10 +40,20 @@ AWS EC2 인스턴스에 FastAPI 프로젝트를 배포하였으며,
  서버에 SQLAlchemy를 사용해 데이터베이스와 FastAPI를 연동할 수 있도록 설정하였으며,  
  MySQL 데이터베이스에 연결해 실제 데이터를 저장할 준비를 마쳤습니다.  
  프로덕션 환경을 주어 설정파일과 데이터베이스 URL을 잘로드 하는지 서버메세지로 확인하였습니다.  
+
+ - **서버 실행 자동화 스크립트 작성**
+AWS 서버에서 FastAPI 서버를 시작할 때마다  
+**환경 변수를 설정하고 가상 환경을 활성화하는 것**의 번거로움을 해결하기 위해 자동화 스크립트를 작성했습니다.  
+start_uvicorn_server.sh 스크립트를 생성하여 다음 작업을 수행하도록 구성하였습니다:  
+  환경 변수 설정: export ENV=production을 통해 프로덕션 환경을 자동으로 설정.  
+  가상 환경 활성화: source /home/ubuntu/FastTodoApp/myenv/bin/activate 명령어로 가상 환경을 활성화.  
+  FastAPI 서버 실행: uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload 명령어를 통해 Uvicorn 서버를 실행.  
+./start_uvicorn_server.sh  
+이 스크립트를 통해 서버 실행이 더욱 간편해졌으며, 위의 스크립트를 실행시키는 것으로 서버가 실행됩니다.  
+
  
 
 # 차후 작업계획
-- **AWS서버측 서버설정 스크립트파일 생성 및 설정**  
 
 - **CI/CD 파이프라인 설정**:  
   GitHub Actions를 활용해 자동화된 테스트와 배포 환경을 구축할 예정입니다.  
