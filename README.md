@@ -49,14 +49,45 @@ start_uvicorn_server.sh 스크립트를 생성하여 다음 작업을 수행하�
   가상 환경 활성화: source /home/ubuntu/FastTodoApp/myenv/bin/activate 명령어로 가상 환경을 활성화.  
   FastAPI 서버 실행: uvicorn app.main:app --host 0.0.0.0 --port 8080 --reload 명령어를 통해 Uvicorn 서버를 실행.  
 ./start_uvicorn_server.sh  
-이 스크립트를 통해 서버 실행이 더욱 간편해졌으며, 위의 스크립트를 실행시키는 것으로 서버가 실행됩니다.  
+이 스크립트를 통해 서버 실행이 간편해졌으며, 위의 스크립트를 실행시키는 것으로 서버가 실행됩니다.  
 
- 
+- **데이터베이스 모델 작성 및 마이그레이션**
+app/models.py 파일에서 Todo 클래스를 정의하고,  
+SQLAlchemy의 Base를 상속받아 데이터베이스 테이블과 매핑했습니다.  
+데이터베이스 스키마 변경을 관리하기 위해 Alembic을 설정했습니다.  
+Alembic 초기화 후, alembic.ini 파일과 env.py를 수정하여 현재 프로젝트의 SQLAlchemy 모델과 연결되도록 설정했습니다.  
+alembic revision --autogenerate 명령어를 통해 마이그레이션 파일을 생성하고,  
+alembic upgrade head로 데이터베이스에 스키마를 반영했습니다.  
+이 과정에서 데이터베이스에 todos 테이블이 정상적으로 생성되고, 데이터 구조가 반영되는 것을 확인했습니다.  
+
+- **CRUD 로직 구현**
+app/crud.py 파일을 생성하여 데이터베이스에 접근하는 기본 CRUD 기능을 정의했습니다.  
+여기에는 할 일(Todo)의 생성, 조회, 업데이트, 삭제 기능이 포함됩니다.  
+각 기능은 SQLAlchemy를 사용하여 데이터베이스에 직접 접근하며,  
+FastAPI 엔드포인트에서 이를 호출할 수 있도록 설정했습니다.  
+
+- **API 라우터 수정**
+app/routers/todo.py 파일에서 FastAPI 라우터를 업데이트하여 CRUD 함수들을 사용했습니다.  
+API 요청 처리 시 종속성을 사용해 데이터베이스 세션을 생성하도록 수정했으며,  
+데이터베이스 작업 후 자동으로 세션이 종료되도록 했습니다.  
+create_todo, get_todos, update_todo 함수에서 비동기 처리와 동기 처리의 구분을 명확히 하고,  
+비동기 처리가 필요 없는 부분에서 await 키워드를 제거했습니다.  
+
+- **의존성 주입 설정 및 수정**
+데이터베이스 세션 관리를 위한 get_db() 함수를 app.dependencies에 정의하고,  
+이를 FastAPI의 Depends와 함께 사용하여 데이터베이스 세션의 자동 생성 및 종료를 처리했습니다.  
+이 과정에서 비동기 함수와 동기 함수의 사용법을 명확히 하여 요청마다  
+데이터베이스 연결이 적절히 생성되고 종료되도록 구현했습니다.  
+
+
+- **테스트 및 오류 해결**
+POST, GET, PUT 요청을 각각 테스트하여  
+데이터베이스에 데이터가 잘 삽입되고, 조회되며, 업데이트되는 것을 확인했습니다.  
+비동기/동기 함수의 혼용으로 인한 오류(await 사용 문제)를 해결하고,  
+RecursionError 및 ResponseValidationError와 같은 오류를 수정했습니다.  
+FastAPI와 SQLAlchemy 간의 데이터 처리 방식에 맞게 코드를 수정하여 정상적인 API 동작을 확인했습니다  
 
 # 차후 작업계획
-
-- **데이터베이스 모델 및 마이그레이션**
-- **CRUD 기능 구현 (DB 연동)**
 - **에러 핸들링 및 예외 처리**
 - **JWT 인증 및 사용자 관리**
 - **테스트 코드 작성**

@@ -1,4 +1,10 @@
-# 환경 설정 (예: 데이터베이스 URL)
+'''
+    환경 설정 
+
+    기본 설정및 데이터베이스 URL, model 등 이후 다른 파일들에서 
+    공통적으로 사용될 모듈들을 정의
+
+'''
 
 import os
 from sqlalchemy import create_engine
